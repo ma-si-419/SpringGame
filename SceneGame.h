@@ -1,5 +1,12 @@
 #pragma once
 #include "SceneBase.h"
+#include <memory>
+#include <vector>
+
+using namespace std;
+
+class Enemy;
+class Player;
 class SceneGame : public SceneBase
 {
 public:
@@ -13,5 +20,10 @@ public:
 	void Draw();
 	//ƒV[ƒ“‚ğ”²‚¯‚é‚Æ‚«‚Ìˆ—
 	void End();
+private:
+	//“–‚½‚è”»’è‚ğ‚Æ‚éŠÖ”
+	bool GetHit(Player* player, shared_ptr<Enemy> enemy);
+	Player* m_pPlayer;
+	vector<shared_ptr<Enemy>> m_pEnemy;
 };
 

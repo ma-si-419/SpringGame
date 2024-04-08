@@ -16,7 +16,7 @@ void SceneTitle::Init()
 
 void SceneTitle::Update()
 {
-	if (CheckHitKey(KEY_INPUT_A))
+	if (CheckHitKey(KEY_INPUT_G))
 	{
 		m_sceneManager.ChangeScene(std::make_shared<SceneGame>(m_sceneManager));
 	}
