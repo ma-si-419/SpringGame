@@ -1,4 +1,5 @@
 #pragma once
+#pragma once
 #include "DxLib.h"
 class Player
 {
@@ -21,6 +22,7 @@ private:
 	struct Status
 	{
 		VECTOR pos;
+		VECTOR angle;
 		float scale;
 		float jumpPower;
 		float fallSpeed;
@@ -29,5 +31,10 @@ private:
 	Status m_status;
 	float m_jumpSpeed;
 	bool m_isJump;
+	bool m_isAirJump;
+	bool m_isSpace;
+	int m_handle;
+	bool m_isRightLane;
+	bool m_isMoveLane;
 };
 

@@ -25,5 +25,7 @@ private:
 		float speed;
 	};
 	Status m_status;
+	int m_handle;
+	float m_shakePosY;
 };
 

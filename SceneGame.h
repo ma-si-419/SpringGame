@@ -7,6 +7,8 @@ using namespace std;
 
 class Enemy;
 class Player;
+class Camera;
+class Obstruct;
 class SceneGame : public SceneBase
 {
 public:
@@ -22,8 +24,10 @@ public:
 	void End();
 private:
 	//“–‚½‚è”»’è‚ğ‚Æ‚éŠÖ”
-	bool GetHit(Player* player, shared_ptr<Enemy> enemy);
-	Player* m_pPlayer;
+	bool GetHit(shared_ptr<Player> player, shared_ptr<Enemy> enemy);
+	shared_ptr<Player> m_pPlayer;
 	vector<shared_ptr<Enemy>> m_pEnemy;
+	shared_ptr<Camera> m_pCamera;
+	vector<shared_ptr<Obstruct>> m_pObstruct;
 };
 

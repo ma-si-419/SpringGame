@@ -16,6 +16,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	SetDrawScreen(DX_SCREEN_BACK);
 
+	SetUseLighting(false);
+
 	SceneManager pScene;
 
 	pScene.ChangeScene(std::make_shared<SceneTitle>(pScene));

@@ -1,10 +1,20 @@
 #include "Enemy.h"
+#include "math.h"
+#include "Data.h"
 
-Enemy::Enemy()
+Enemy::Enemy():
+	m_shakePosY(),
+	m_handle(-1)
 {
 	m_status.pos = VGet(0.0f, 0.0f, 0.0f);
-	m_status.scale = 20.0f;
-	m_status.speed = 5.0f;
+	m_status.scale = 60.0f;
+	m_status.speed = 8.0f;
+	// ÇRÇcÉÇÉfÉãÇÃì«Ç›çûÇ›
+	m_handle = MV1LoadModel("data/model/Enemy.mv1");
+	if (m_handle < 0)
+	{
+		printfDx("ÉfÅ[É^ì«Ç›çûÇ›Ç…é∏îs");
+	}
 }
 
 Enemy::~Enemy()
@@ -13,16 +23,21 @@ Enemy::~Enemy()
 
 void Enemy::Init()
 {
-	m_status.pos = VGet(600.0f, 100.0f, 0.0f);
+	m_status.pos = VGet(600.0f, 198.0f, 0.0f);
+	MV1SetRotationXYZ(m_handle, VGet(0,(DX_PI_F / 180) * 90,0));
 }
 
 void Enemy::Update()
 {
+	m_shakePosY += static_cast<float>((DX_PI / 180) * 5);
+
+	m_status.pos.y += sinf(m_shakePosY) * 3;
 	m_status.pos.x -= m_status.speed;
+	MV1SetPosition(m_handle, m_status.pos);
 }
 
 void Enemy::Draw()
 {
-	DrawSphere3D(m_status.pos, m_status.scale, 32,
-		GetColor(255, 0, 0), GetColor(255, 0, 0), true);
+	MV1DrawModel(m_handle);
+	DrawSphere3D(m_status.pos, Data::m_HitScale, 64, GetColor(0, 255, 0), GetColor(0, 0, 255), true);
 }
