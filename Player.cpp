@@ -16,7 +16,8 @@ Player::Player() :
 	m_jumpSpeed(0),
 	m_handle(-1),
 	m_isSpace(false),
-	m_isRightLane(true)
+	m_isRightLane(true),
+	m_isMoveLane(false)
 {
 	m_status.pos = VGet(0.0f, 0.0f, 0.0f);
 	m_status.angle = VGet(0.0f, (DX_PI_F / 180) * 270, 0.0f);
@@ -144,5 +145,5 @@ void Player::Update()
 void Player::Draw()
 {
 	MV1DrawModel(m_handle);
-	DrawSphere3D(m_status.pos, Data::m_HitScale, 64, GetColor(0, 255, 0), GetColor(0, 0, 255), true);
+	//DrawSphere3D(m_status.pos, Data::kHitScale, 64, GetColor(0, 255, 0), GetColor(0, 0, 255), false);
 }

@@ -32,12 +32,12 @@ void Enemy::Update()
 	m_shakePosY += static_cast<float>((DX_PI / 180) * 5);
 
 	m_status.pos.y += sinf(m_shakePosY) * 3;
-	m_status.pos.x -= m_status.speed;
+	//m_status.pos.x -= m_status.speed;
 	MV1SetPosition(m_handle, m_status.pos);
 }
 
 void Enemy::Draw()
 {
 	MV1DrawModel(m_handle);
-	DrawSphere3D(m_status.pos, Data::m_HitScale, 64, GetColor(0, 255, 0), GetColor(0, 0, 255), true);
+	DrawSphere3D(m_status.pos, Data::kHitScale, 64, GetColor(0, 255, 0), GetColor(0, 0, 255), true);
 }

@@ -24,9 +24,7 @@ void SceneTitle::Update()
 
 void SceneTitle::Draw()
 {
-	DrawString(0, 0, "SceneTitle", GetColor(255, 255, 255));
-
-	DrawBox(100, 100, 500, 500, GetColor(0, 0, 255),true);
+	DrawString(0, 0, "‚¶‚á‚ñ‚Õ‚ ‚­‚µ‚å‚ñ", GetColor(255, 255, 255));
 }
 
 void SceneTitle::End()

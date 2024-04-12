@@ -3,8 +3,8 @@
 namespace Data
 {
 	//ˆÚ“®‘¬“x
-	constexpr float m_scroolSpeed = 1.5f;
+	constexpr float kScrollSpeed = 5.0f;
 	//“–‚½‚è”»’è‚Ì‘å‚«‚³
-	constexpr float m_HitScale = 72.0f;
+	constexpr float kHitScale = 72.0f;
 };
 

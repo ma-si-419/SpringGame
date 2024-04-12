@@ -3,11 +3,11 @@
 class Obstruct
 {
 public:
-	Obstruct();
+	Obstruct(VECTOR pos);
 	~Obstruct();
 
 	void Init();
-	void Update();
+	bool Update();
 	void Draw();
 
 private:

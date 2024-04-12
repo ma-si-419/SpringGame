@@ -1,5 +1,6 @@
 #pragma once
 #include "SceneBase.h"
+#include "DxLib.h"
 #include <memory>
 #include <vector>
 
@@ -25,9 +26,14 @@ public:
 private:
 	//“–‚½‚è”»’è‚ğ‚Æ‚éŠÖ”
 	bool GetHit(shared_ptr<Player> player, shared_ptr<Enemy> enemy);
+	//’n–Ê‚ğ¶¬‚·‚éŠÖ”
+	void CreateObstruct(VECTOR pos);
+	
 	shared_ptr<Player> m_pPlayer;
 	vector<shared_ptr<Enemy>> m_pEnemy;
 	shared_ptr<Camera> m_pCamera;
 	vector<shared_ptr<Obstruct>> m_pObstruct;
+
+	int m_count;
 };
 

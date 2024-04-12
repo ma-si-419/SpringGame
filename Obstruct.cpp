@@ -1,7 +1,12 @@
 #include "Obstruct.h"
+#include "Data.h"
 
-Obstruct::Obstruct():
-	m_pos()
+namespace
+{
+	constexpr float kScrollEnd = -500.0f;
+}
+Obstruct::Obstruct(VECTOR pos):
+	m_pos(pos)
 {
 	// ÇRÇcÉÇÉfÉãÇÃì«Ç›çûÇ›
 	m_handle = MV1LoadModel("data/model/Grass.mv1");
@@ -9,7 +14,6 @@ Obstruct::Obstruct():
 	{
 		printfDx("ÉfÅ[É^ì«Ç›çûÇ›Ç…é∏îs");
 	}
-	m_pos = VGet(100,100,0);
 }
 
 Obstruct::~Obstruct()
@@ -22,9 +26,16 @@ void Obstruct::Init()
 
 }
 
-void Obstruct::Update()
+bool Obstruct::Update()
 {
+	m_pos.x -= Data::kScrollSpeed;
+	if (m_pos.x < kScrollEnd)
+	{
+		MV1DeleteModel(m_handle);
+		return true;
+	}
 	MV1SetPosition(m_handle, m_pos);
+	return false;
 }
 
 void Obstruct::Draw()
