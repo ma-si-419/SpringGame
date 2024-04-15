@@ -13,5 +13,9 @@ public:
 	void Draw();
 	//ƒV[ƒ“‚ğ”²‚¯‚é‚Æ‚«‚Ìˆ—
 	void End();
+private:
+	int m_titleHandle;
+	float m_boxScale;
+	float m_boxMag;
 };
 

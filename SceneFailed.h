@@ -13,5 +13,7 @@ public:
 	void Draw();
 	//ƒV[ƒ“‚ğ”²‚¯‚é‚Æ‚«‚Ìˆ—
 	void End();
+private:
+	int m_failedImage;
 };
 

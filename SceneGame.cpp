@@ -7,18 +7,22 @@
 #include "Camera.h"
 #include "Obstruct.h"
 #include "Data.h"
+#include "Bg.h" 
 namespace
 {
 	constexpr int kGroundPopTime = 40;
 }
 SceneGame::SceneGame(SceneManager& sceneManager) :
 	SceneBase(sceneManager),
-	m_count(0)
+	m_count(0),
+	m_timeCount(0),
+	m_appTime(0)
 {
 	m_pPlayer = std::make_shared<Player>();
 	m_pEnemy.resize(10);
 	m_pEnemy[0] = std::make_shared<Enemy>();
 	m_pCamera = std::make_shared<Camera>();
+//	m_pBg = std::make_shared<Bg>();
 	m_pObstruct.resize(96);
 }
 
@@ -51,6 +55,7 @@ void SceneGame::Update()
 	if (CheckHitKey(KEY_INPUT_C))
 	{
 		m_sceneManager.ChangeScene(std::make_shared<SceneClear>(m_sceneManager));
+		return;
 	}
 	if (GetHit(m_pPlayer, m_pEnemy[0]))
 	{
@@ -63,10 +68,17 @@ void SceneGame::Update()
 		CreateObstruct(VGet(1500,100,0));
 		CreateObstruct(VGet(1500,100,400));
 	}
+	m_timeCount++;
+	if (m_timeCount > 60)
+	{
+		m_timeCount = 0;
+		m_appTime++;
+	}
 }
 
 void SceneGame::Draw()
 {
+//	m_pBg->Draw();
 	for (auto& obstruct : m_pObstruct)
 	{
 		if (obstruct)
@@ -78,6 +90,7 @@ void SceneGame::Draw()
 	m_pEnemy[0]->Draw();
 	m_pCamera->Draw();
 	DrawString(0, 0, "SceneGame", GetColor(255, 255, 255));
+	DrawFormatString(300, 0, GetColor(255, 255, 255), "%d,%d", m_timeCount, m_appTime);
 }
 
 void SceneGame::End()

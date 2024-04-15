@@ -1,11 +1,11 @@
 #include "SceneClear.h"
 #include "DxLib.h"
 #include "SceneTitle.h"
-#include "SceneGame.h"
 
 SceneClear::SceneClear(SceneManager& sceneManager):
 	SceneBase(sceneManager)
 {
+	m_handle = LoadGraph("data/image/ClearImage.png");
 }
 
 SceneClear::~SceneClear()
@@ -22,17 +22,11 @@ void SceneClear::Update()
 	{
 		m_sceneManager.ChangeScene(std::make_shared<SceneTitle>(m_sceneManager));
 	}
-	if (CheckHitKey(KEY_INPUT_G))
-	{
-		m_sceneManager.ChangeScene(std::make_shared<SceneGame>(m_sceneManager));
-	}
 }
 
 void SceneClear::Draw()
 {
-	DrawString(0, 0, "SceneClear", GetColor(255, 255, 255));
-
-	DrawBox(100, 100, 500, 500, GetColor(0, 255, 0), true);
+	DrawGraph(0, 0, m_handle, true);
 }
 
 void SceneClear::End()

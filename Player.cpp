@@ -3,7 +3,7 @@
 namespace
 {
 	//落ちる速度の最大速度
-	constexpr float kMaxFallSpeed = -20.0f;
+	constexpr float kMaxFallSpeed = -40.0f;
 	//地面の高さ
 	constexpr float kGroundHeight = 198.0f;
 	//左レーンの座標
@@ -15,7 +15,7 @@ Player::Player() :
 	m_isAirJump(false),
 	m_jumpSpeed(0),
 	m_handle(-1),
-	m_isSpace(false),
+	m_isSpace(true),
 	m_isRightLane(true),
 	m_isMoveLane(false)
 {
@@ -59,6 +59,18 @@ void Player::Update()
 			//空中でジャンプしたら
 			else if (!m_isAirJump)
 			{
+				if (m_isRightLane && CheckHitKey(KEY_INPUT_LEFT))
+				{
+					m_isRightLane = false;
+					m_jumpSpeed = m_status.jumpPower;
+					m_isMoveLane = true;
+				}
+				else if (!m_isRightLane && CheckHitKey(KEY_INPUT_RIGHT))
+				{
+					m_isRightLane = true;
+					m_jumpSpeed = m_status.jumpPower;
+					m_isMoveLane = true;
+				}
 				m_isAirJump = true;
 				m_jumpSpeed = m_status.jumpPower;
 				m_isSpace = true;
@@ -145,5 +157,5 @@ void Player::Update()
 void Player::Draw()
 {
 	MV1DrawModel(m_handle);
-	//DrawSphere3D(m_status.pos, Data::kHitScale, 64, GetColor(0, 255, 0), GetColor(0, 0, 255), false);
+	DrawSphere3D(m_status.pos, Data::kHitScale, 64, GetColor(0, 255, 0), GetColor(0, 0, 255), true);
 }
