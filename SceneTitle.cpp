@@ -16,8 +16,8 @@ namespace
 	constexpr int kBoxEndPosX = 350 + kBoxWidth;
 	constexpr int kBoxEndPosY = 350 + kBoxHeight;
 }
-SceneTitle::SceneTitle(SceneManager& sceneManager) :
-	SceneBase(sceneManager),
+SceneTitle::SceneTitle(SceneManager& sceneManager,DataManager& dataManager) :
+	SceneBase(sceneManager,dataManager),
 	m_boxScale(0),
 	m_boxMag(0)
 {
@@ -36,7 +36,7 @@ void SceneTitle::Update()
 {
 	if (CheckHitKey(KEY_INPUT_SPACE))
 	{
-		m_sceneManager.ChangeScene(std::make_shared<SceneGame>(m_sceneManager));
+		m_sceneManager.ChangeScene(std::make_shared<SceneGame>(m_sceneManager,m_dataManager));
 	}
 
 	m_boxScale += static_cast<float>((DX_PI / 180) * 5);

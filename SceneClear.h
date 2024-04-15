@@ -3,7 +3,7 @@
 class SceneClear : public SceneBase
 {
 public:
-	SceneClear(SceneManager& sceneManager);
+	SceneClear(SceneManager& sceneManager,DataManager& dataManager);
 	~SceneClear();
 	//‰Šú‰»ˆ—
 	void Init();

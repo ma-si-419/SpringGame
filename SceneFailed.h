@@ -3,7 +3,7 @@
 class SceneFailed : public SceneBase
 {
 public:
-	SceneFailed(SceneManager& sceneManager);
+	SceneFailed(SceneManager& sceneManager,DataManager& dataManager);
 	~SceneFailed();
 	//‰Šú‰»ˆ—
 	void Init();

@@ -3,8 +3,8 @@
 #include "SceneTitle.h"
 #include "SceneGame.h"
 
-SceneFailed::SceneFailed(SceneManager& sceneManager):
-	SceneBase(sceneManager),
+SceneFailed::SceneFailed(SceneManager& sceneManager, DataManager& dataManager):
+	SceneBase(sceneManager,dataManager),
 	m_failedImage(-1)
 {
 	m_failedImage = LoadGraph("data/image/FailedImage.png");
@@ -22,11 +22,11 @@ void SceneFailed::Update()
 {
 	if (CheckHitKey(KEY_INPUT_T))
 	{
-		m_sceneManager.ChangeScene(std::make_shared<SceneTitle>(m_sceneManager));
+		m_sceneManager.ChangeScene(std::make_shared<SceneTitle>(m_sceneManager, m_dataManager));
 	}
 	if (CheckHitKey(KEY_INPUT_R))
 	{
-		m_sceneManager.ChangeScene(std::make_shared<SceneGame>(m_sceneManager));
+		m_sceneManager.ChangeScene(std::make_shared<SceneGame>(m_sceneManager, m_dataManager));
 	}
 }
 

@@ -1,10 +1,11 @@
 #pragma once
 #include <memory>
 #include "SceneManager.h"
+#include "DataManager.h"
 class SceneBase
 {
 public:
-	SceneBase(SceneManager& sceneManager);
+	SceneBase(SceneManager& sceneManager,DataManager& dataManager);
 	virtual ~SceneBase() {}
 	//‰Šú‰»ˆ—
 	virtual void Init() = 0;	
@@ -17,4 +18,8 @@ public:
 protected:
 
 	SceneManager& m_sceneManager;
+
+	DataManager& m_dataManager;
+
+
 };

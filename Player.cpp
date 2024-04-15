@@ -23,6 +23,7 @@ Player::Player() :
 	m_status.angle = VGet(0.0f, (DX_PI_F / 180) * 270, 0.0f);
 	m_status.scale = 60.0f;
 	m_status.jumpPower = 30.0f;
+	m_status.speed = 2.0f;
 	m_status.fallSpeed = 1.0f;
 	// ‚R‚cƒ‚ƒfƒ‹‚Ì“Ç‚İ‚İ
 	m_handle = MV1LoadModel("data/model/Player.mv1");
@@ -44,6 +45,7 @@ void Player::Init()
 void Player::Update()
 {
 
+	m_status.pos.x += m_status.speed;
 	if (!m_isSpace)
 	{
 		if (CheckHitKey(KEY_INPUT_SPACE))

@@ -1,9 +1,10 @@
 #include "Obstruct.h"
 #include "Data.h"
+#include "Player.h"
 
 namespace
 {
-	constexpr float kScrollEnd = -500.0f;
+	constexpr float kScrollEnd = -400.0f;
 }
 Obstruct::Obstruct(VECTOR pos):
 	m_pos(pos)
@@ -26,16 +27,14 @@ void Obstruct::Init()
 
 }
 
-bool Obstruct::Update()
+void Obstruct::Update(Player& player)
 {
-	m_pos.x -= Data::kScrollSpeed;
-	if (m_pos.x < kScrollEnd)
+
+	if (m_pos.x < kScrollEnd + player.GetPos().x)
 	{
-		MV1DeleteModel(m_handle);
-		return true;
+		m_pos.x = 1750 + player.GetPos().x;
 	}
 	MV1SetPosition(m_handle, m_pos);
-	return false;
 }
 
 void Obstruct::Draw()

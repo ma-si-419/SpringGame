@@ -24,6 +24,7 @@ private:
 		VECTOR pos;
 		VECTOR angle;
 		float scale;
+		float speed;
 		float jumpPower;
 		float fallSpeed;
 	};

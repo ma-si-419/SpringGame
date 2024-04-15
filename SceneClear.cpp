@@ -2,8 +2,8 @@
 #include "DxLib.h"
 #include "SceneTitle.h"
 
-SceneClear::SceneClear(SceneManager& sceneManager):
-	SceneBase(sceneManager)
+SceneClear::SceneClear(SceneManager& sceneManager, DataManager& dataManager):
+	SceneBase(sceneManager,dataManager)
 {
 	m_handle = LoadGraph("data/image/ClearImage.png");
 }
@@ -20,7 +20,7 @@ void SceneClear::Update()
 {
 	if (CheckHitKey(KEY_INPUT_T))
 	{
-		m_sceneManager.ChangeScene(std::make_shared<SceneTitle>(m_sceneManager));
+		m_sceneManager.ChangeScene(std::make_shared<SceneTitle>(m_sceneManager, m_dataManager));
 	}
 }
 

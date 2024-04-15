@@ -1,5 +1,6 @@
 #pragma once
 #include "DxLib.h"
+class Player;
 class Obstruct
 {
 public:
@@ -7,7 +8,7 @@ public:
 	~Obstruct();
 
 	void Init();
-	bool Update();
+	void Update(Player& player);
 	void Draw();
 
 private:

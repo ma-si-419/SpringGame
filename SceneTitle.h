@@ -3,7 +3,7 @@
 class SceneTitle : public SceneBase
 {
 public:
-	SceneTitle(SceneManager& sceneManager);
+	SceneTitle(SceneManager& sceneManager, DataManager& dataManager);
 	~SceneTitle();
 	//‰Šú‰»ˆ—
 	void Init();

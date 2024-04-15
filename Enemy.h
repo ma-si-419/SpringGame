@@ -4,7 +4,7 @@ class Enemy
 {
 public:
 	//コンストラクタ
-	Enemy();
+	Enemy(bool right);
 	//デストラクタ
 	~Enemy();
 	//初期化処理

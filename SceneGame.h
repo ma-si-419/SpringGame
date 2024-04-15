@@ -14,7 +14,7 @@ class Bg;
 class SceneGame : public SceneBase
 {
 public:
-	SceneGame(SceneManager& sceneManager);
+	SceneGame(SceneManager& sceneManager, DataManager& dataManager);
 	~SceneGame();
 	//初期化処理
 	void Init();
@@ -29,14 +29,16 @@ private:
 	bool GetHit(shared_ptr<Player> player, shared_ptr<Enemy> enemy);
 	//地面を生成する関数
 	void CreateObstruct(VECTOR pos);
+	//エネミーを生成する関数
+	void CreateEnemy(bool right);
 	
 	shared_ptr<Player> m_pPlayer;
 	vector<shared_ptr<Enemy>> m_pEnemy;
 	shared_ptr<Camera> m_pCamera;
 	vector<shared_ptr<Obstruct>> m_pObstruct;
+	vector<PopData> m_enemyPopData;
 //	shared_ptr<Bg> m_pBg;
 
-	int m_count;
 	int m_timeCount;
 	int m_appTime;
 };

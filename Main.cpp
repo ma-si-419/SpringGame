@@ -1,5 +1,6 @@
 #include "DxLib.h"
 #include "SceneManager.h"
+#include "DataManager.h"
 #include "SceneTitle.h"
 #include <memory>
 
@@ -20,7 +21,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	SceneManager pScene;
 
-	pScene.ChangeScene(std::make_shared<SceneTitle>(pScene));
+	DataManager pData;
+
+	pData.LoadCsv();
+
+	pScene.ChangeScene(std::make_shared<SceneTitle>(pScene,pData));
 
 	pScene.Init();
 

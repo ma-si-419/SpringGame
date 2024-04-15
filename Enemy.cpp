@@ -2,11 +2,18 @@
 #include "math.h"
 #include "Data.h"
 
-Enemy::Enemy() :
+Enemy::Enemy(bool right) :
 	m_shakePosY(),
 	m_handle(-1)
 {
-	m_status.pos = VGet(0.0f, 0.0f, 0.0f);
+	if (right)
+	{
+		m_status.pos = VGet(1300.0f, 198.0f, 0.0f);
+	}
+	else
+	{
+		m_status.pos = VGet(1300.0f, 198.0f, 300.0f);
+	}
 	m_status.scale = 60.0f;
 	m_status.speed = 8.0f;
 	// ‚R‚cƒ‚ƒfƒ‹‚Ì“Ç‚İ‚İ
@@ -23,7 +30,6 @@ Enemy::~Enemy()
 
 void Enemy::Init()
 {
-	m_status.pos = VGet(1300.0f, 198.0f, 0.0f);
 	MV1SetRotationXYZ(m_handle, VGet(0, (DX_PI_F / 180) * 90, 0));
 }
 
@@ -35,19 +41,7 @@ void Enemy::Update()
 	m_status.pos.x -= m_status.speed;
 	if (m_status.pos.x < -300.0f)
 	{
-		int random = GetRand(1);
-		m_status.pos.x = 1300.0f;
-		switch (random)
-		{
-		case 0:
-			m_status.pos.z = 0.0f;
-			break;
-		case 1:
-			m_status.pos.z = 300.0f;
-			break;
-		default:
-			break;
-		}
+		
 	}
 	MV1SetPosition(m_handle, m_status.pos);
 }
