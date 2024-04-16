@@ -15,6 +15,7 @@ Obstruct::Obstruct(VECTOR pos):
 	{
 		printfDx("ÉfÅ[É^ì«Ç›çûÇ›Ç…é∏îs");
 	}
+
 }
 
 Obstruct::~Obstruct()

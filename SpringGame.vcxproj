@@ -145,14 +145,17 @@
     <ClCompile Include="DataManager.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Map.cpp" />
     <ClCompile Include="Obstruct.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="ProgressString.cpp" />
     <ClCompile Include="SceneBase.cpp" />
     <ClCompile Include="SceneClear.cpp" />
     <ClCompile Include="SceneFailed.cpp" />
     <ClCompile Include="SceneGame.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
+    <ClCompile Include="WorldSprite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bg.h" />
@@ -160,14 +163,17 @@
     <ClInclude Include="Data.h" />
     <ClInclude Include="DataManager.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Map.h" />
     <ClInclude Include="Obstruct.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="ProgressString.h" />
     <ClInclude Include="SceneBase.h" />
     <ClInclude Include="SceneClear.h" />
     <ClInclude Include="SceneFailed.h" />
     <ClInclude Include="SceneGame.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SceneTitle.h" />
+    <ClInclude Include="WorldSprite.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

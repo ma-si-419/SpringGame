@@ -2,17 +2,17 @@
 #include "math.h"
 #include "Data.h"
 
-Enemy::Enemy(bool right) :
+Enemy::Enemy(bool right,int posX) :
 	m_shakePosY(),
 	m_handle(-1)
 {
 	if (right)
 	{
-		m_status.pos = VGet(1300.0f, 198.0f, 0.0f);
+		m_status.pos = VGet(1700.0f + posX, 198.0f, 0.0f);
 	}
 	else
 	{
-		m_status.pos = VGet(1300.0f, 198.0f, 300.0f);
+		m_status.pos = VGet(1700.0f + posX, 198.0f, 300.0f);
 	}
 	m_status.scale = 60.0f;
 	m_status.speed = 8.0f;
@@ -49,5 +49,5 @@ void Enemy::Update()
 void Enemy::Draw()
 {
 	MV1DrawModel(m_handle);
-	DrawSphere3D(m_status.pos, Data::kHitScale, 64, GetColor(0, 255, 0), GetColor(0, 0, 255), true);
+//	DrawSphere3D(m_status.pos, Data::kHitScale, 64, GetColor(0, 255, 0), GetColor(0, 0, 255), true);
 }

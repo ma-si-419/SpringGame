@@ -159,5 +159,5 @@ void Player::Update()
 void Player::Draw()
 {
 	MV1DrawModel(m_handle);
-	DrawSphere3D(m_status.pos, Data::kHitScale, 64, GetColor(0, 255, 0), GetColor(0, 0, 255), true);
+//	DrawSphere3D(m_status.pos, Data::kHitScale, 64, GetColor(0, 255, 0), GetColor(0, 0, 255), true);
 }

@@ -19,6 +19,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	SetUseLighting(false);
 
+	/*SetUseZBuffer3D(true);
+
+	SetWriteZBuffer3D(true);*/
+
 	SceneManager pScene;
 
 	DataManager pData;

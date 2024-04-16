@@ -2,7 +2,7 @@
 
 void DataManager::LoadCsv()
 {
-    m_popLane.resize(90);
+    m_popLane.resize(99);
 
     std::string path = "data.csv";
 
@@ -16,7 +16,6 @@ void DataManager::LoadCsv()
 
     std::wstring strBuf;
     std::vector<std::wstring> strConmaBuf;
-    strConmaBuf.resize(10);
 
     // 余分な部分の読み込み
     std::getline(ifs, strBuf);
@@ -29,7 +28,7 @@ void DataManager::LoadCsv()
         // 左レーン取得
         int time = std::stoi(strConmaBuf[kTime]);
 
-        std::wstring leftLaneInfo = strConmaBuf[kLeftLane];
+        std::wstring& leftLaneInfo = strConmaBuf[kLeftLane];
         auto& data = m_popLane[time];
         if (leftLaneInfo == L"0") {
             data.left = false;
@@ -39,7 +38,7 @@ void DataManager::LoadCsv()
         }
 
         // 右レーン取得
-        std::wstring rightLaneInfo = strConmaBuf[kRightLane];
+        std::wstring& rightLaneInfo = strConmaBuf[kRightLane];
         if (rightLaneInfo == L"0") {
             data.right = false;
         }
