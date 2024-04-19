@@ -18,6 +18,8 @@ public:
 	VECTOR GetPos() { return m_status.pos; }
 	//当たり判定の大きさを取得する
 	float GetScale() { return m_status.scale; }
+	//アニメーションを変更する
+	void ChangeAnim(int animNum);
 private:
 	struct Status
 	{
@@ -37,5 +39,9 @@ private:
 	int m_handle;
 	bool m_isRightLane;
 	bool m_isMoveLane;
-};
+	bool m_isJumpIdle;
+	float m_animTime;
+	float m_animTotalTime;
+	int m_attachAnim;
 
+};

@@ -209,7 +209,9 @@ void SceneGame::End()
 
 bool SceneGame::GetHit(shared_ptr<Player> player, shared_ptr<Enemy> enemy)
 {
-	VECTOR langeVec = VSub(enemy->GetPos(), player->GetPos());
+	VECTOR playerPos = player->GetPos();
+	playerPos.y += Data::kPlayerHeight;
+	VECTOR langeVec = VSub(enemy->GetPos(), playerPos);
 	float ans = VSize(langeVec);
 	//“–‚½‚è”»’è‚Ì‘å‚«‚³‚æ‚è‚à‹——£‚ª‹ß‚©‚Á‚½‚ç
 	if (Data::kHitScale * 2 > ans)

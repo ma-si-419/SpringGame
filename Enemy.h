@@ -18,6 +18,9 @@ public:
 	//“–‚½‚è”»’è‚Ì‘å‚«‚³‚ðŽæ“¾‚·‚é
 	float GetScale() { return m_status.scale; }
 private:
+
+	void ChangeAnim(int animNum);
+
 	struct Status
 	{
 		VECTOR pos;
@@ -27,5 +30,8 @@ private:
 	Status m_status;
 	int m_handle;
 	float m_shakePosY;
+	int m_attachAnim;
+	float m_animTime;
+	float m_animTotalTime;
 };
 

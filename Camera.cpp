@@ -17,10 +17,8 @@ Camera::~Camera()
 
 void Camera::Update(shared_ptr<Player> player)
 {
-	
 	m_pos.x += 2.0f;
 	SetCameraPositionAndAngle(m_pos, m_hRota, 0.77, m_tRota);
-
 }
 
 void Camera::Draw()
