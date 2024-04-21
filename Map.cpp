@@ -54,10 +54,12 @@ Map::~Map()
 void Map::Load()
 {
 	// とりあえずマップロード
-	chipGraph = LoadGraph("data/Image/rock.png");
+	chipGraph = LoadGraph("data/image/rock.png");
+//	bgGraph = LoadGraph("data/image/bgGraph.jpg");
 
 	// WorldSprite実体設定と位置初期化
 	VECTOR chipLeftTopPos = VGet(0, StageDataColNum * ChipSize, 0);			// マップの描画開始位置（左上）
+//	VECTOR bgPos = VGet(0, 0, 100);
 	for (int i = 0; i < StageDataColNum; i++)
 	{
 		for (int j = 0; j < StageDataRowNum; j++)
@@ -71,6 +73,11 @@ void Map::Load()
 			sprites.push_back(sprite);
 		}
 	}
+	//auto sprite = new WorldSprite();
+	//sprite->Init(bgGraph,0,0);
+	//sprite->SetTransform(bgPos,0);
+	//bgSprite.push_back(sprite);
+
 }
 
 /// <summary>

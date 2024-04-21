@@ -20,6 +20,8 @@ public:
 	float GetScale() { return m_status.scale; }
 	//アニメーションを変更する
 	void ChangeAnim(int animNum);
+	//ループするSeを返す
+	int GetLoopSe() { return m_secondJumpSeHandle; }
 private:
 	struct Status
 	{
@@ -43,5 +45,7 @@ private:
 	float m_animTime;
 	float m_animTotalTime;
 	int m_attachAnim;
+	int m_jumpSeHandle;
+	int m_secondJumpSeHandle;
 
 };

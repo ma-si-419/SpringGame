@@ -139,7 +139,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Bg.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Data.cpp" />
     <ClCompile Include="DataManager.cpp" />
@@ -158,7 +157,6 @@
     <ClCompile Include="WorldSprite.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Bg.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Data.h" />
     <ClInclude Include="DataManager.h" />

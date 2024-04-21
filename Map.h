@@ -28,6 +28,8 @@ private:
 	static const int Stage1Data[StageDataColNum][StageDataRowNum];
 
 	std::vector<WorldSprite*> sprites;
+	WorldSprite* bgSprite;
 	int chipGraph;
+//	int bgGraph;
 };
 

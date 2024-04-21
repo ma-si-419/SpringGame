@@ -35,6 +35,10 @@ Player::Player() :
 	m_status.jumpPower = 30.0f;
 	m_status.speed = 2.0f;
 	m_status.fallSpeed = 1.2f;
+
+	m_jumpSeHandle = LoadSoundMem("data/sound/jumpSe.mp3");
+	m_secondJumpSeHandle = LoadSoundMem("data/sound/secondJumpSe.mp3");
+
 	// ３Ｄモデルの読み込み
 	m_handle = MV1LoadModel("data/model/Player.mv1");
 	ChangeAnim(kRunAnimNumber);
@@ -51,6 +55,8 @@ Player::~Player()
 void Player::Init()
 {
 	m_status.pos = VGet(100.0f, kGroundHeight, 0.0f);
+	MV1SetPosition(m_handle, m_status.pos);
+	MV1SetRotationXYZ(m_handle, m_status.angle);
 }
 
 void Player::Update()
@@ -65,6 +71,7 @@ void Player::Update()
 			//ジャンプしていないときにSPACEが押されたら
 			if (!m_isJump)
 			{
+				PlaySoundMem(m_jumpSeHandle, DX_PLAYTYPE_BACK);
 				m_isJump = true;
 				m_jumpSpeed = m_status.jumpPower;
 				m_isSpace = true;
@@ -85,6 +92,7 @@ void Player::Update()
 					m_jumpSpeed = m_status.jumpPower;
 					m_isMoveLane = true;
 				}
+				PlaySoundMem(m_secondJumpSeHandle, DX_PLAYTYPE_LOOP);
 				m_isAirJump = true;
 				m_jumpSpeed = m_status.jumpPower;
 				m_isSpace = true;
@@ -127,6 +135,7 @@ void Player::Update()
 			m_isJump = true;
 			m_jumpSpeed = m_status.jumpPower;
 			m_isMoveLane = true;
+			PlaySoundMem(m_jumpSeHandle, DX_PLAYTYPE_BACK);
 			ChangeAnim(kJumpAnimNumber);
 		}
 	}
@@ -138,6 +147,7 @@ void Player::Update()
 			m_isJump = true;
 			m_jumpSpeed = m_status.jumpPower;
 			m_isMoveLane = true;
+			PlaySoundMem(m_jumpSeHandle, DX_PLAYTYPE_BACK);
 			ChangeAnim(kJumpAnimNumber);
 		}
 	}
@@ -176,6 +186,7 @@ void Player::Update()
 		m_isJump = false;
 		m_isAirJump = false;
 		m_isMoveLane = false;
+		StopSoundMem(m_secondJumpSeHandle);
 		ChangeAnim(kRunAnimNumber);
 	}
 	//地面に足がついているときの処理
@@ -199,7 +210,7 @@ void Player::Draw()
 
 	VECTOR colPos = m_status.pos;
 	colPos.y += Data::kPlayerHeight;
-	DrawSphere3D(colPos, Data::kHitScale, 64, GetColor(0, 255, 0), GetColor(0, 0, 255), true);
+//	DrawSphere3D(colPos, Data::kHitScale, 64, GetColor(0, 255, 0), GetColor(0, 0, 255), true);
 }
 
 void Player::ChangeAnim(int animNum)

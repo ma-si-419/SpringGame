@@ -25,7 +25,7 @@ Obstruct::~Obstruct()
 
 void Obstruct::Init()
 {
-
+	MV1SetPosition(m_handle, m_pos);
 }
 
 void Obstruct::Update(Player& player)
