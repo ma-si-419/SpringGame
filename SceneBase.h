@@ -20,6 +20,4 @@ protected:
 	SceneManager& m_sceneManager;
 
 	DataManager& m_dataManager;
-
-
 };

@@ -41,4 +41,3 @@ public:
 	std::vector<PopData> GetData() { return m_popLane; }
 
 };
-

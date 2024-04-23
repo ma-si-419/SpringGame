@@ -12,4 +12,3 @@ namespace Data
 	constexpr int kScreenHeight = 500;
 	constexpr int kScreenWidth = 650;
 };
-
